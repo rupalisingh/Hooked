@@ -41,15 +41,14 @@ function Post({ userData = null }) {
     const [posts, setPosts] = useState(null)
     const classes = useStyles()
     const callback = entries => {
-        console.log(entries)
         entries.forEach(element => {
-            console.log(element.target)
-            let el = element.target.childNode[0]
-            // el.play().then(() => {
-            //     if(!el.paused && !element.isIntersecting){
-            //         el.pause()
-            //     }
-            // })
+            let el = element.target.childNodes[0]
+            console.log(el)
+            el.play().then(() => {
+                if(!el.paused && !element.isIntersecting){
+                    el.pause()
+                }
+            })
         })
     }
 
