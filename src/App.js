@@ -12,7 +12,7 @@ function App() {
       <AuthProvider>
         <Switch>
           <PrivateRoute exact path = '/UsersFeed' component = {Feed}/>
-          <Route path = '/Login' component = {MainPage}/>
+          <Route path = '/' component = {MainPage}/>
           <Route path = '/SetProfile' component = {SetProfile}/>
           {/* <Route path = '/Header' component = {Header}/> */}
 
