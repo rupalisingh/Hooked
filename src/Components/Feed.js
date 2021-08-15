@@ -44,7 +44,7 @@ function Feed(props) {
                     <Toolbar id="back-to-top-anchor" />
                     <Container>
                         <div className = {classes.postContainer}>
-                            {/* <Post userData = {userData}/> */}
+                            <Post userData = {userData}/>
                         </div>
                     </Container>
                     <ThemeProvider theme={theme}>
