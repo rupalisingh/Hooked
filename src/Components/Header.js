@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { LinearProgress, AppBar, makeStyles, Toolbar, Avatar, createTheme, ThemeProvider, CircularProgress } from '@material-ui/core';
+import { AppBar, makeStyles, Toolbar, Avatar, createTheme, ThemeProvider } from '@material-ui/core';
 import VideoCallRoundedIcon from '@material-ui/icons/VideoCallRounded';
 import { teal } from '@material-ui/core/colors';
 import { UploadFile } from './UploadFile';

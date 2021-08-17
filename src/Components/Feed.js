@@ -4,7 +4,7 @@ import { AuthContext } from '../Context/AuthProvider'
 import { database } from '../firebase'
 import { CircularProgress } from '@material-ui/core'
 import ScrollTop from './ScrollTop'
-import { makeStyles, Paper, Toolbar, createTheme, CssBaseline, Container, Fab} from '@material-ui/core';
+import { makeStyles, Toolbar, createTheme, CssBaseline, Container, Fab} from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { ThemeProvider } from 'styled-components'
 import { teal } from '@material-ui/core/colors';

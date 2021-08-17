@@ -11,11 +11,10 @@ function App() {
     <Router>
       <AuthProvider>
         <Switch>
-          <PrivateRoute exact path = '/UsersFeed' component = {Feed}/>
-          <Route path = '/' component = {MainPage}/>
-          <Route path = '/SetProfile' component = {SetProfile}/>
+          <PrivateRoute exact path='/UsersFeed' component={Feed} />
+          <Route path='/' component={MainPage} />
+          <Route path='/SetProfile' component={SetProfile} />
           {/* <Route path = '/Header' component = {Header}/> */}
-
           {/* <Route path = '/Signup' component = {Signup}/> */}
           {/* <MainPage /> */}
           {/* <Hooked/> */}

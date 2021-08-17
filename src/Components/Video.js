@@ -6,10 +6,8 @@ import { makeStyles} from '@material-ui/core';
 const useStyles = makeStyles({
     
     post: {
-        width: '90%',
-        height: '40%',
-        position : 'relative',
-        marginLeft :'5%'
+        width: '100%',
+        height: '100%',
         
     }
 })
@@ -31,7 +29,7 @@ function Video(props) {
     }
     return (
         <>
-            <video className={classes.post}  onEnded = {handleAutoScroll} src={props.source} onClick={handlemute} muted='muted' type='video/mp4'></video>
+            <video className={classes.post} controls  onEnded = {handleAutoScroll} src={props.source} onClick={handlemute} muted='muted' type='video/mp4'></video>
         </>
     )
 }
