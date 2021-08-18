@@ -101,6 +101,7 @@ function SetProfile() {
 
         function fail(error) {
             setError(error)
+            console.log(Error)
             setTimeout(() => {
                 setError('')
             }, 2000)
@@ -126,7 +127,7 @@ function SetProfile() {
                         <Paper className={classes.details} elevation={3}>
                             <div className='col-6'>
                                 <div className={classes.ImgGrid}>
-                                    {ViewFile == null ? <AccountCircleRoundedIcon></AccountCircleRoundedIcon> : <img src={ViewFile} />}
+                                    {ViewFile == null ? <AccountCircleRoundedIcon></AccountCircleRoundedIcon> : <img src={ViewFile} alt = "" />}
                                 </div>
                                 <input
                                     accept="image/*"

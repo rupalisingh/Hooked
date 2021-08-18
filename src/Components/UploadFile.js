@@ -6,7 +6,7 @@ import { database, storage } from '../firebase'
 export function UploadFile(props, file) {
 
     const types = ['video/mp4', 'video/webm', 'video/ogg']
-    if (types.indexOf(file.type) == -1) {
+    if (types.indexOf(file.type) === -1) {
         console.log('Please select a video File of mp4, webm or ogg format')
         return
     }

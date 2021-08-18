@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Button, ThemeProvider, createTheme, TextField, Paper, CircularProgress, Container, makeStyles, Avatar } from '@material-ui/core';
+import { Modal, Backdrop, Fade, Button, ThemeProvider, createTheme, TextField, Paper, CircularProgress, Container, makeStyles, Avatar } from '@material-ui/core';
 import { database } from '../firebase';
 import Video from './Video'
 import ChatBubbleOutlineRoundedIcon from '@material-ui/icons/ChatBubbleOutlineRounded';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { teal } from '@material-ui/core/colors';
+import './backdrop.css'
+import "./OpenPost.css"
 
 
 
@@ -43,23 +45,29 @@ const useStyles = makeStyles({
         display: "flex",
         marginTop: '3%',
         width: '100%',
-        paddingBottom : "4%"
+        paddingBottom: "4%"
     },
 
     actionbtns: {
-        display : 'flex',
-        alignItems : 'center',
-        width : "20%",
-        marginLeft : "2%",
-        justifyContent : "space-evenly",
+        display: 'flex',
+        alignItems: 'center',
+        width: "20%",
+        marginLeft: "2%",
+        justifyContent: "space-evenly",
         '& > *': {
-            
+
         }
     },
 
+    PostModal: {
+        height: "70%",
+        width: "60%",
+        position: 'absolute',
+        marginLeft: '20%',
+        marginTop: '10%',
+        display: 'flex',
 
-
-
+    },
 
 })
 
@@ -74,6 +82,8 @@ function Post({ userData = null }) {
         },
     });
     const [posts, setPosts] = useState(null)
+    const [OpenModal, setOpenModal] = useState(null)
+    const [isModalOpened, setisModalOpened] = useState(false)
     const classes = useStyles()
     const callback = entries => {
         entries.forEach(element => {
@@ -111,6 +121,16 @@ function Post({ userData = null }) {
         }
     }, [posts])
 
+    const ModalOpen = (id) => {
+        setOpenModal(id)
+        setisModalOpened(true)
+    }
+
+    const ModalClose = () => {
+        setOpenModal(null)
+        setisModalOpened(false)
+    }
+
     return (
 
         <>
@@ -131,14 +151,50 @@ function Post({ userData = null }) {
                                             </div>
 
                                             <div className={classes.actionbtns}>
-                                                <ChatBubbleOutlineRoundedIcon fontSize="medium" />
-                                                <FavoriteBorderIcon fontSize="medium"/>
+                                                <ChatBubbleOutlineRoundedIcon fontSize="medium" onClick={() => ModalOpen(post.pid)} />
+                                                <FavoriteBorderIcon fontSize="medium" />
                                             </div>
-                                            <div className={classes.commentBox} style = {{marginBottom : "5%"}}>
-                                                <TextField className = "col-9" id="standard-basic" label="Add a Comment" style = {{marginBottom : "5%"}, {marginLeft : "1%"}}/>
-                                                <Button className = "col-3" color="primary">Post</Button>
+                                            <div className={classes.commentBox} style={{ marginBottom: "5%" }}>
+                                                <TextField className="col-9" id="standard-basic" label="Add a Comment" style={{ marginBottom: "5%" }, { marginLeft: "1%" }} />
+                                                <Button className="col-3" color="primary">Post</Button>
                                             </div>
                                         </Paper>
+                                        {
+                                            < Modal
+                                                className={classes.modal}
+                                                open={OpenModal === post.pid}
+                                                onClose={ModalClose}
+                                                BackdropComponent={Backdrop}
+                                                BackdropProps={{
+                                                    timeout: 500,
+                                                }}
+
+                                            ><Fade in= {isModalOpened}>
+                                                    <Paper className={classes.PostModal} elevation={4}>
+                                                        <div className='col-6'>
+                                                            <div className="video-part">
+                                                                <Video source={post.pUrl}></Video>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-6">
+                                                            <div className="info-part">
+                                                                <div className="user-info">
+                                                                    <Avatar src={post.uProfile} className="profilepic"></Avatar>
+                                                                    <h4 className="user-name">{post.uname}</h4>
+                                                                </div>
+                                                                <div className="comments-history">
+                                                                    comments
+                                                                </div>
+                                                                <div className="add-comment">
+                                                                    <TextField className="col-9" id="standard-basic" label="Add a Comment" style={{ marginBottom: "5%" }, { marginLeft: "1%" }} />
+                                                                    <Button className="col-3" color="primary">Post</Button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </Paper>
+                                                </Fade>
+                                            </Modal>
+                                        }
                                     </React.Fragment>
                                 ))
                             }
