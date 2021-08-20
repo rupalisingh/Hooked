@@ -9,6 +9,7 @@ import './backdrop.css'
 import "./OpenPost.css"
 import Likes from './Likes'
 import AddComments from './AddComments'
+import Comments from './Comments'
 
 
 
@@ -185,7 +186,7 @@ function Post({ userData = null }) {
                                                                     <h4 className="user-name">{post.uname}</h4>
                                                                 </div>
                                                                 <div className="comments-history">
-                                                                    comments
+                                                                    <Comments postData = {post}></Comments>
                                                                 </div>
                                                                 <AddComments userData = {userData} postData = {post} ></AddComments>
                                                             </div>
