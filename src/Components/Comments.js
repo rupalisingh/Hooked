@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { database } from '../firebase'
 import { CircularProgress, Avatar, makeStyles } from '@material-ui/core'
-
+import './OpenPost.css'
 const useStyles = makeStyles({
+    dp: {
+        marginLeft: "2%",
+},
+usercomm : {
+    justifyContent : 'center',
+    marginTop : '5%',
+    marginLeft : "2%",
 
+},
+usernamestyle : {
+    fontWeight : "bolder",
+    fontFamily : "calibri"
+    
+}
 })
 
 function Comments(props) {
@@ -26,7 +39,7 @@ function Comments(props) {
                     comments.map((comment, index) => (
                         <div key={index} className="comment-div">
                             <Avatar src={comment.Dpurl} className={classes.dp} />
-                            <p><span style={{ fontWeight: 'bold' }, { display: 'inline-block' }}>{comment.uName}</span>&nbsp;&nbsp;{comment.text}</p>
+                            <p className = {classes.usercomm}><span className = {classes.usernamestyle} >{comment.uName}</span>&nbsp;&nbsp;{comment.text}</p>
                         </div>
                     ))
             }

@@ -33,7 +33,7 @@ function AddComments({userData = null, postData = null}) {
     return (
         <>
         <div className="add-comment">
-            <TextField value = {text} className="col-9" onChange = {manageText} id="standard-basic" label="Add a Comment" style={{ marginBottom: "5%" }, { marginLeft: "1%" }} />
+            <TextField value = {text} className="col-9" onChange = {manageText} id="standard-basic" label="Add a Comment" style={{ marginBottom: "5%" },{ marginLeft: "1%" }} />
             <Button className="col-3" onClick = {handleonEnter} disabled = {text == '' ? true : false} color="primary">Post</Button>
             </div>
         </>
