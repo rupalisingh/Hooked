@@ -187,7 +187,7 @@ function Post({ userData = null }) {
                                                                 <div className="comments-history">
                                                                     comments
                                                                 </div>
-                                                                <AddComments ></AddComments>
+                                                                <AddComments userData = {userData} postData = {post} ></AddComments>
                                                             </div>
                                                         </div>
                                                     </Paper>

@@ -23,6 +23,7 @@ export const database = {
   // entities to export which will be used later
   users : firestore.collection('users'),
   posts : firestore.collection('posts'),
+  comments : firestore.collection('comments'),
   getCurrentTimestamp : firebase.firestore.FieldValue.serverTimestamp
 }
 
