@@ -7,6 +7,8 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { teal } from '@material-ui/core/colors';
 import './backdrop.css'
 import "./OpenPost.css"
+import Likes from './Likes'
+import AddComments from './AddComments'
 
 
 
@@ -152,7 +154,7 @@ function Post({ userData = null }) {
 
                                             <div className={classes.actionbtns}>
                                                 <ChatBubbleOutlineRoundedIcon fontSize="medium" onClick={() => ModalOpen(post.pid)} />
-                                                <FavoriteBorderIcon fontSize="medium" />
+                                                <Likes userData={userData} postData={post} />
                                             </div>
                                             <div className={classes.commentBox} style={{ marginBottom: "5%" }}>
                                                 <TextField className="col-9" id="standard-basic" label="Add a Comment" style={{ marginBottom: "5%" }, { marginLeft: "1%" }} />
@@ -169,7 +171,7 @@ function Post({ userData = null }) {
                                                     timeout: 500,
                                                 }}
 
-                                            ><Fade in= {isModalOpened}>
+                                            ><Fade in={isModalOpened}>
                                                     <Paper className={classes.PostModal} elevation={4}>
                                                         <div className='col-6'>
                                                             <div className="video-part">
@@ -185,10 +187,7 @@ function Post({ userData = null }) {
                                                                 <div className="comments-history">
                                                                     comments
                                                                 </div>
-                                                                <div className="add-comment">
-                                                                    <TextField className="col-9" id="standard-basic" label="Add a Comment" style={{ marginBottom: "5%" }, { marginLeft: "1%" }} />
-                                                                    <Button className="col-3" color="primary">Post</Button>
-                                                                </div>
+                                                                <AddComments ></AddComments>
                                                             </div>
                                                         </div>
                                                     </Paper>
