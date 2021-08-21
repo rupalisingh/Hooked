@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import { database } from '../firebase';
 import { makeStyles } from '@material-ui/core';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
 const useStyles = makeStyles({
     like: {
@@ -15,6 +13,7 @@ const useStyles = makeStyles({
         cursor: "pointer",
         stroke : "black",
         color : "white",
+        strokeWidth : "2px",
 
     }
 })

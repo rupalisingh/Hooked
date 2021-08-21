@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import { AppBar, makeStyles, Toolbar, Avatar, createTheme, ThemeProvider } from '@material-ui/core';
+import React, { useState, useContext } from 'react'
+import { Fade, MenuItem, Menu, AppBar, makeStyles, Toolbar, Avatar, createTheme, ThemeProvider } from '@material-ui/core';
 import VideoCallRoundedIcon from '@material-ui/icons/VideoCallRounded';
 import { teal } from '@material-ui/core/colors';
 import { UploadFile } from './UploadFile';
+import { AuthContext } from '../Context/AuthProvider'
+import { useHistory } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -28,8 +30,8 @@ const useStyles = makeStyles({
 
     fileloader: {
         marginTop: 70,
-        position : 'relative',
-        zIndex : 100,
+        position: 'relative',
+        zIndex: 100,
     },
 })
 
@@ -37,6 +39,10 @@ const useStyles = makeStyles({
 function Header(props) {
     const classes = useStyles()
     const [loading, setLoading] = useState(false)
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl)
+    const {Logout} = useContext(AuthContext)
+    const history = useHistory()
 
     const theme = createTheme({
         palette: {
@@ -53,6 +59,19 @@ function Header(props) {
         UploadFile(props, file)
     }
 
+    const OpenMenu = (e) => {
+        setAnchorEl(e.currentTarget)
+    }
+
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
+
+    const UserLogout = async (e) => {
+        e.preventDefault()
+        await Logout()
+        history.push('/')
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -72,7 +91,18 @@ function Header(props) {
                         <label htmlFor='contained-button-file'>
                             <VideoCallRoundedIcon fontSize='large' />
                         </label>
-                        <Avatar src={props.userData.profileURL} />
+                        <Avatar src={props.userData.profileURL} aria-controls="fade-menu" aria-haspopup="true" onClick={OpenMenu} />
+                        <Menu
+                            id="fade-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={open}
+                            onClose={handleClose}
+                            TransitionComponent={Fade}
+                        >
+                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem onClick={UserLogout}>Logout</MenuItem>
+                        </Menu>
                     </div>
                 </Toolbar>
             </AppBar>
