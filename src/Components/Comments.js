@@ -16,6 +16,11 @@ usernamestyle : {
     fontWeight : "bolder",
     fontFamily : "calibri"
     
+},
+loader : {
+display : "flex",
+justifyContent : "center",
+alignItems : "center",
 }
 })
 
@@ -35,7 +40,7 @@ function Comments(props) {
     return (
         <>
             {
-                comments == null ? <CircularProgress /> :
+                comments == null ? <CircularProgress className = {classes.loader} /> :
                     comments.map((comment, index) => (
                         <div key={index} className="comment-div">
                             <Avatar src={comment.Dpurl} className={classes.dp} />

@@ -20,6 +20,10 @@
     min-height: 387px;
     width: 100%;
     border-bottom-style: groove;
+    overflow-wrap: anywhere;
+    max-height: 387px;
+    overflow-y: scroll;
+
 
 }
 

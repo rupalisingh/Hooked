@@ -8,10 +8,14 @@ const useStyles = makeStyles({
     like: {
         color:'#e74c3c',
         cursor:'pointer',
+        stroke : "e74c3c",
     },
 
     unlike: {
         cursor: "pointer",
+        stroke : "black",
+        color : "white",
+
     }
 })
 

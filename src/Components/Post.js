@@ -48,7 +48,10 @@ const useStyles = makeStyles({
         display: "flex",
         marginTop: '3%',
         width: '100%',
-        paddingBottom: "4%"
+        paddingBottom: "4%",
+        '& > *': {
+            minWidth : "100%",
+        },
     },
 
     actionbtns: {
@@ -57,9 +60,7 @@ const useStyles = makeStyles({
         width: "20%",
         marginLeft: "2%",
         justifyContent: "space-evenly",
-        '& > *': {
-
-        }
+        cursor : "pointer",
     },
 
     PostModal: {
@@ -158,8 +159,9 @@ function Post({ userData = null }) {
                                                 <Likes userData={userData} postData={post} />
                                             </div>
                                             <div className={classes.commentBox} style={{ marginBottom: "5%" }}>
-                                                <TextField className="col-9" id="standard-basic" label="Add a Comment" style={{ marginBottom: "5%" }, { marginLeft: "1%" }} />
-                                                <Button className="col-3" color="primary">Post</Button>
+                                                {/* <TextField className="col-9" id="standard-basic" label="Add a Comment" style={{ marginBottom: "5%" }, { marginLeft: "1%" }} />
+                                                <Button className="col-3" color="primary">Post</Button> */}
+                                                <AddComments userData = {userData} postData = {post}/>
                                             </div>
                                         </Paper>
                                         {
