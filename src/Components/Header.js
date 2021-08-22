@@ -5,7 +5,7 @@ import { teal } from '@material-ui/core/colors';
 import { UploadFile } from './UploadFile';
 import { AuthContext } from '../Context/AuthProvider'
 import { useHistory } from 'react-router-dom';
-
+import Profile from './Profile'
 
 const useStyles = makeStyles({
     root: {
@@ -73,6 +73,12 @@ function Header(props) {
         history.push('/')
     }
 
+    const GotoProfile = (e) => {
+        e.preventDefault()
+        history.push('/YourProfile')
+    }
+    console.log(props)
+
     return (
         <ThemeProvider theme={theme}>
             <AppBar>
@@ -100,7 +106,7 @@ function Header(props) {
                             onClose={handleClose}
                             TransitionComponent={Fade}
                         >
-                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem onClick={GotoProfile}>Profile</MenuItem>
                             <MenuItem onClick={UserLogout}>Logout</MenuItem>
                         </Menu>
                     </div>

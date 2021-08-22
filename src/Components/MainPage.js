@@ -102,7 +102,6 @@ function MainPage() {
 
     const OpenSignup = () => {
         setOpen(true)
-        console.log(Open)
     }
 
     const handleClose = () => {

@@ -5,6 +5,7 @@ import AuthProvider from './Context/AuthProvider';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PrivateRoute from './Components/PrivateRoute';
 import SetProfile from './Components/SetProfile';
+import Profile from './Components/Profile';
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <AuthProvider>
         <Switch>
           <PrivateRoute exact path='/UsersFeed' component={Feed} />
-          <Route path='/' component={MainPage} />
+          <Route path='/' component={MainPage} exact={true} />
           <Route path='/SetProfile' component={SetProfile} />
+          <PrivateRoute path='/YourProfile' component={Profile} />
           {/* <Route path = '/Header' component = {Header}/> */}
           {/* <Route path = '/Signup' component = {Signup}/> */}
           {/* <MainPage /> */}
