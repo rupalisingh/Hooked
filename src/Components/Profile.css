@@ -7,3 +7,16 @@
     
 }
 
+.MuiPaper-root.AllPost {
+    min-height : 25rem;
+    min-width: 83%;
+    
+}
+
+.post-div {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 38px;
+    padding: 25px;
+}

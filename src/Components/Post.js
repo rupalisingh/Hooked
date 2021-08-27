@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Modal, Backdrop, Fade, Button, ThemeProvider, createTheme, TextField, Paper, CircularProgress, Container, makeStyles, Avatar } from '@material-ui/core';
+import { Modal, Backdrop, Fade,  ThemeProvider, createTheme, Paper, CircularProgress, Container, makeStyles, Avatar } from '@material-ui/core';
 import { database } from '../firebase';
 import Video from './Video'
 import ChatBubbleOutlineRoundedIcon from '@material-ui/icons/ChatBubbleOutlineRounded';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { teal } from '@material-ui/core/colors';
 import './backdrop.css'
 import "./OpenPost.css"

@@ -55,7 +55,7 @@ function Header(props) {
     const onchange = (e) => {
         const file = e.target.files[0]
         setLoading(true)
-        console.log(loading)
+        // console.log(loading)
         UploadFile(props, file)
     }
 
@@ -77,7 +77,7 @@ function Header(props) {
         e.preventDefault()
         history.push('/YourProfile')
     }
-    console.log(props)
+    // console.log(props)
 
     return (
         <ThemeProvider theme={theme}>
