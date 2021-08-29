@@ -21,6 +21,7 @@ const useStyles = makeStyles({
 function Likes({ userData = null, postData = null }) {
     const classes = useStyles()
     const [Like, setLike] = useState(null)
+    
     const handlelike = async () => {
         if (Like == true) {
             let uarr = postData.likes.filter(el => {
@@ -34,14 +35,18 @@ function Likes({ userData = null, postData = null }) {
             await database.posts.doc(postData.postId).update({
                 likes: uarr
             })
+            
+
         }
     }
 
     useEffect(() => {
         let check = postData.likes.includes(userData?.userId) ? true : false
+        console.log(check)
         setLike(check)
     }, [postData])
 
+    
     return (
         <>
             {

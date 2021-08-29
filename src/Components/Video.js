@@ -27,7 +27,6 @@ function Video(props) {
             e.target.muted = true
         }
     }
-    console.log(props)
     return (
         <>
             <video className={classes.post} controls  onEnded = {handleAutoScroll} src={props.source} onClick={handlemute} muted='muted' type='video/mp4'></video>

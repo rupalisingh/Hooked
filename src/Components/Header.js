@@ -83,7 +83,7 @@ function Header(props) {
         <ThemeProvider theme={theme}>
             <AppBar>
                 <Toolbar>
-                    <h1 className={classes.text}>Hooked.</h1>
+                    <h1 className={classes.text} onClick = {() => history.push('/UsersFeed')} style = {{cursor : "pointer"}}>Hooked.</h1>
                     <div className={classes.root}>
                         <input
                             accept="video/*"
